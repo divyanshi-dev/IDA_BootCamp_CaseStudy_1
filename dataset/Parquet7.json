@@ -1,0 +1,72 @@
+{
+	"name": "Parquet7",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "casestudy1_ingestion1_shreya_nayak_a",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TargetPath": {
+				"type": "string"
+			},
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().TargetPath",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "Prop_0",
+				"type": "UTF8"
+			},
+			{
+				"name": "Prop_1",
+				"type": "UTF8"
+			},
+			{
+				"name": "Prop_2",
+				"type": "UTF8"
+			},
+			{
+				"name": "Prop_3",
+				"type": "UTF8"
+			},
+			{
+				"name": "Prop_4",
+				"type": "UTF8"
+			},
+			{
+				"name": "Prop_5",
+				"type": "UTF8"
+			},
+			{
+				"name": "Prop_6",
+				"type": "UTF8"
+			},
+			{
+				"name": "Prop_7",
+				"type": "UTF8"
+			},
+			{
+				"name": "Prop_8",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

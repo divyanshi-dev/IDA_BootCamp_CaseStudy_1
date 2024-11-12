@@ -1,0 +1,19 @@
+{
+	"name": "Test_landing_del_CSV_VM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_2_ADLS_VM",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "vinayvm/test_landing",
+				"fileSystem": "usecase3and4"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,38 @@
+{
+	"name": "UC3_PG_Source_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_PG_CaseStudy",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filecountry": {
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.Country_Code"
+			},
+			"filefrequency": {
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.Frequency"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat('GSAP',dataset().filecountry,'MISRCI022_TCURR',dataset().filefrequency,'.csv')\n\n",
+					"type": "Expression"
+				},
+				"folderPath": "source_datasets",
+				"fileSystem": "usecase3and4"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

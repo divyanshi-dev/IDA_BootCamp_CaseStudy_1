@@ -1,0 +1,79 @@
+{
+	"name": "Shreya_CaseStudy1_pip_MasterPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "SourceToRaw",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Shreya_CaseStudy1_pip_SourceToRaw",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "RawToAcquisition",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "SourceToRaw",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Shreya_CaseStudy1_pip_RawToAcquisition",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "AcquisitionToEnriched",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "RawToAcquisition",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/shreya.nayak@shell.com/Shreya_CaseStudy1_db_AcquisitionToEnriched"
+				},
+				"linkedServiceName": {
+					"referenceName": "Shreya_CaseStudy1_RawToAcquisitionn",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "Shreya_CaseStudy1"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-11-07T13:25:06Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

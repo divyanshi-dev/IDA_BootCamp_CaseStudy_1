@@ -1,0 +1,23 @@
+{
+	"name": "O8andVendorDataOUtputDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage2ASN",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "shreya-nayak-a"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

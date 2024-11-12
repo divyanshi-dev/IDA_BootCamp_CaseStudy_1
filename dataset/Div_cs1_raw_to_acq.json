@@ -1,0 +1,38 @@
+{
+	"name": "Div_cs1_raw_to_acq",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CaseStudy1_Divyanshi",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TargetPath": {
+				"type": "string"
+			},
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Divyanshi_case_study1"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().TargetPath",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

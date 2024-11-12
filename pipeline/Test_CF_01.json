@@ -1,0 +1,84 @@
+{
+	"name": "Test_CF_01",
+	"properties": {
+		"description": "Test_CF_01",
+		"activities": [
+			{
+				"name": "Append_Variable_1",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Marks",
+					"value": "90"
+				}
+			},
+			{
+				"name": "Set_Variable_1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Append_Variable_1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Total",
+					"value": {
+						"value": "@variables('Marks')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Fail1",
+				"description": "Fail1",
+				"type": "Fail",
+				"dependsOn": [
+					{
+						"activity": "Set_Variable_1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [
+					{
+						"name": "UP1",
+						"value": "01"
+					}
+				],
+				"typeProperties": {
+					"message": "Test Fail 01",
+					"errorCode": "001"
+				}
+			}
+		],
+		"variables": {
+			"Marks": {
+				"type": "Array",
+				"defaultValue": [
+					"10",
+					"20",
+					"30"
+				]
+			},
+			"Total": {
+				"type": "Array"
+			}
+		},
+		"folder": {
+			"name": "Test"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-10-28T05:33:55Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,56 @@
+{
+	"name": "Control_table_div_cs1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Control_table_div",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "ObjectID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ObjectName",
+				"type": "varchar"
+			},
+			{
+				"name": "FileName",
+				"type": "varchar"
+			},
+			{
+				"name": "SourcePath",
+				"type": "varchar"
+			},
+			{
+				"name": "TargetPath",
+				"type": "varchar"
+			},
+			{
+				"name": "TargetZoneID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ApprovalStatus",
+				"type": "varchar"
+			},
+			{
+				"name": "RequestedBy",
+				"type": "varchar"
+			},
+			{
+				"name": "Comments",
+				"type": "text"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ControlTable_Div"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

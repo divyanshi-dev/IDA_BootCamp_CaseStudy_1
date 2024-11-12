@@ -1,0 +1,62 @@
+{
+	"name": "dataflow3_copy1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "data_for_trial_vendor",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Parquet6",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1",
+					"description": "Creating/updating the columns 'VENDOR_OR_CREDITOR_ACCOUNT_NO,VENDOR_NAME_1 , VENDOR_ADDRESS, VENDOR_CITY_NAME,VENDOR_POSTAL_CODE , VENDOR_RECORD_CREATE_BY, ColumnCount'"
+				},
+				{
+					"name": "filter1"
+				}
+			],
+			"scriptLines": [
+				"parameters{",
+				"     parameter1 as boolean (ColumnCount==6)",
+				"}",
+				"source(output(",
+				"          VENDOR_OR_CREDITOR_ACCOUNT_NO as string,",
+				"          VENDOR_NAME_1 as string,",
+				"          VENDOR_ADDRESS as string,",
+				"          VENDOR_CITY_NAME as string,",
+				"          VENDOR_POSTAL_CODE as string,",
+				"          VENDOR_RECORD_CREATE_BY as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     inferDriftedColumnTypes: true,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 derive(ColumnCount = iif(!isNull('VENDOR_OR_CREDITOR_ACCOUNT_NO'), 1, 0)+ iif(!isNull('VENDOR_NAME_1'), 1, 0)+ iif(!isNull('VENDOR_ADDRESS'), 1,0) + iif(!isNull('VENDOR_CITY_NAME'), 1,0) + iif(!isNull('VENDOR_POSTAL_CODE'), 1,0)+ iif(!isNull('VENDOR_RECORD_CREATE_BY'), 1,0)) ~> derivedColumn1",
+				"derivedColumn1 filter(ColumnCount == 6) ~> filter1",
+				"filter1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

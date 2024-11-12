@@ -1,0 +1,21 @@
+{
+	"name": "Parquet3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "casestudy1_ingestion1_shreya_nayak_a",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "case_study1/PROJECT/P00001 – ACQUISTION/NonSensitive/3rd_Party/ORCHESTR8/O8_MASTER_DATA",
+				"fileSystem": "shreya-nayak-a"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

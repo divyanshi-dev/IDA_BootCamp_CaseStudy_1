@@ -1,0 +1,21 @@
+{
+	"name": "raw_to_acq_xlsx",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Case_Study2_Divyanshi",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "case_study_2/RAW",
+				"fileSystem": "divyanshi"
+			}
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,21 @@
+{
+	"name": "acq_marine_div_cs2_par",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Case_Study2_Divyanshi",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "case_study_2/ACQUISITION",
+				"fileSystem": "divyanshi"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

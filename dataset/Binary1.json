@@ -1,0 +1,19 @@
+{
+	"name": "Binary1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "casestudy1_ingestion1_shreya_nayak_a",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "case_study2/raw",
+				"fileSystem": "shreya-nayak-a"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

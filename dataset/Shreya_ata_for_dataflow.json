@@ -1,0 +1,48 @@
+{
+	"name": "Shreya_ata_for_dataflow",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "casestudy1_ingestion1_shreya_nayak_a",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Filename": {
+				"type": "string",
+				"defaultValue": "@item().Filename"
+			},
+			"SourcePath": {
+				"type": "string",
+				"defaultValue": "@item().SourcePath"
+			},
+			"OldFileName": {
+				"type": "string",
+				"defaultValue": "@item().OldFileName"
+			},
+			"TargetPath": {
+				"type": "string",
+				"defaultValue": "@item().TargetPath"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().OldFileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().SourcePath",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

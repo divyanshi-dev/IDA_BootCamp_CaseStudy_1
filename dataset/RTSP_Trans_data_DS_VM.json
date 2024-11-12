@@ -1,0 +1,24 @@
+{
+	"name": "RTSP_Trans_data_DS_VM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_2_ADLS_VM",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "landing/rtsp",
+				"fileSystem": "vinayvm-uc2"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

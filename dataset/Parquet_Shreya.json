@@ -1,0 +1,35 @@
+{
+	"name": "Parquet_Shreya",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "casestudy1_ingestion1_shreya_nayak_a",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TargetPath": {
+				"type": "string"
+			},
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().TargetPath",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

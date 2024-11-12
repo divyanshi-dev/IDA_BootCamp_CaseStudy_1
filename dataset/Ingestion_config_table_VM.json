@@ -1,0 +1,36 @@
+{
+	"name": "Ingestion_config_table_VM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQLDB_VM",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Config_Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Country_Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Frequency",
+				"type": "varchar"
+			},
+			{
+				"name": "Trigger_Time",
+				"type": "time",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "uc3_log_VM",
+			"table": "IngestionConfig_VM"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

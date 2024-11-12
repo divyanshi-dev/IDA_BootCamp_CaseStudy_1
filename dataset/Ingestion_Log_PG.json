@@ -1,0 +1,70 @@
+{
+	"name": "Ingestion_Log_PG",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_PG",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "load_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "load_date",
+				"type": "date"
+			},
+			{
+				"name": "frequency",
+				"type": "varchar"
+			},
+			{
+				"name": "start_time",
+				"type": "time",
+				"scale": 7
+			},
+			{
+				"name": "end_time",
+				"type": "time",
+				"scale": 7
+			},
+			{
+				"name": "status",
+				"type": "varchar"
+			},
+			{
+				"name": "country_code",
+				"type": "varchar"
+			},
+			{
+				"name": "layer",
+				"type": "varchar"
+			},
+			{
+				"name": "total_rows_inserted",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "file_size",
+				"type": "varchar"
+			},
+			{
+				"name": "file_name",
+				"type": "varchar"
+			},
+			{
+				"name": "file_date",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "uc3_log_PG",
+			"table": "Ingestion_Log_PG"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

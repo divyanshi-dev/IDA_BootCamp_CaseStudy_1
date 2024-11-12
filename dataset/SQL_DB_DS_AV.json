@@ -1,0 +1,104 @@
+{
+	"name": "SQL_DB_DS_AV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_DB_AV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "DELCO_CODE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MATERIAL_NO",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CUSTOMER_CODE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ACTUAL_DEMAND",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FORECAST_VOLUME",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "YEAR_NO",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MONTH_NO",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PLANT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SHIP_TO",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DIVISION",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DISTRIBUTION_CHANNEL",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "UNIT_OF_MEASURE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CUSTOMER_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MATERIAL_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ACCOUNT_MANAGER",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ACCOUNT_MANAGER_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DEMAND_CLASSIFICATION",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SALES_ORGANIZATION",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DELCO_COUNTRY",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FACT_TBL_DEMAND_FORECAST_MASTER"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

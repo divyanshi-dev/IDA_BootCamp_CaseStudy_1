@@ -1,0 +1,19 @@
+{
+	"name": "Bronze_CSV_files_VM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_2_ADLS_VM",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "vinayvm/bronze/uc3",
+				"fileSystem": "usecase3and4"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

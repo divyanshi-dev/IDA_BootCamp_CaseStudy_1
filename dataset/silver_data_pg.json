@@ -1,0 +1,21 @@
+{
+	"name": "silver_data_pg",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_PG_CaseStudy",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "cs3-pravs/silver",
+				"fileSystem": "cs-pravallika"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

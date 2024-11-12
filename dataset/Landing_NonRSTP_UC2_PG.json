@@ -1,0 +1,24 @@
+{
+	"name": "Landing_NonRSTP_UC2_PG",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_PG_CaseStudy",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "landing/nonrstp",
+				"fileSystem": "pravallikag-uc2"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

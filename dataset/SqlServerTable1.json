@@ -1,0 +1,65 @@
+{
+	"name": "SqlServerTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer_ShreyaNayakA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "ObjectName",
+				"type": "varchar"
+			},
+			{
+				"name": "ObjectID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FileName",
+				"type": "varchar"
+			},
+			{
+				"name": "SourcePath",
+				"type": "varchar"
+			},
+			{
+				"name": "SourceZoneID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TargetPath",
+				"type": "varchar"
+			},
+			{
+				"name": "TargetZoneID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ApprovalStatus",
+				"type": "varchar"
+			},
+			{
+				"name": "RequestedBy",
+				"type": "varchar"
+			},
+			{
+				"name": "Comments",
+				"type": "text"
+			},
+			{
+				"name": "OldFileName",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ControlTable_SHNAA"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

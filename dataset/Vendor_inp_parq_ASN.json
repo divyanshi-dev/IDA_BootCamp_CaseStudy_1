@@ -1,0 +1,21 @@
+{
+	"name": "Vendor_inp_parq_ASN",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "casestudy1_ingestion1_shreya_nayak_a",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "case_study1/PROJECT/P00001 – ACQUISTION/NonSensitive/1st _Party/GSAP_DS_HANA/VENDOR_MASTER",
+				"fileSystem": "shreya-nayak-a"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

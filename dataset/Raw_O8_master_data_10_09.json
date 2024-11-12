@@ -1,0 +1,25 @@
+{
+	"name": "Raw_O8_master_data_10_09",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CaseStudy1_Divyanshi",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "o8_master_data_10_09.csv",
+				"folderPath": "case_study_1/RAW/W00001-LANDING/3rd_Party/ORCHESTR8/O8_MASTER_DATA",
+				"fileSystem": "divyanshi"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

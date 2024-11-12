@@ -1,0 +1,68 @@
+{
+	"name": "CS1_data_table_VM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQLDB_VM",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "country_cd",
+				"type": "nvarchar"
+			},
+			{
+				"name": "country_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "from_currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "to_currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "exchange_date",
+				"type": "date"
+			},
+			{
+				"name": "exchange_rate",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "filename",
+				"type": "nvarchar"
+			},
+			{
+				"name": "load_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "file_timestamp",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Month",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "uc3_data_VM",
+			"table": "data_table_VM"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

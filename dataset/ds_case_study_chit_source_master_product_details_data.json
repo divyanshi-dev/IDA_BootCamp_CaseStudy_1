@@ -1,0 +1,25 @@
+{
+	"name": "ds_case_study_chit_source_master_product_details_data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_case_study_chit_source",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Gloabl_Prod.csv",
+				"folderPath": "product_details",
+				"fileSystem": "source-datasets"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

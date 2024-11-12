@@ -1,0 +1,68 @@
+{
+	"name": "Data_Table_PG",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_PG",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "from_currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "to_currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "exchange_date",
+				"type": "date"
+			},
+			{
+				"name": "exchange_rate",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "load_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "file_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "country_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "timestamp",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "country_cd",
+				"type": "nvarchar"
+			},
+			{
+				"name": "year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "month",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "uc3_data_PG",
+			"table": "data_table_PG"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

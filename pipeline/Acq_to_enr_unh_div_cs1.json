@@ -1,0 +1,172 @@
+{
+	"name": "Acq_to_enr_unh_div_cs1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Enriched_Unharmonised_Notebook",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "StartTime",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/divyanshi.d.sharma@shell.com/enriched_unharmonised"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks_Div_cs1",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "StartTime",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "StartTime3",
+					"value": {
+						"value": "@utcNow()",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "EndTime",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Enriched_Unharmonised_Notebook",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "EndTime3",
+					"value": {
+						"value": "@utcNow()",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "EndTime",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InsertPipelineRunStatus]",
+					"storedProcedureParameters": {
+						"EndTime": {
+							"value": {
+								"value": "@variables('EndTime3')",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"PL_Name": {
+							"value": {
+								"value": "@pipeline().Pipeline",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"PL_RunID": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"PL_TriggerTime": {
+							"value": {
+								"value": "@pipeline().TriggerTime",
+								"type": "Expression"
+							},
+							"type": "Datetime"
+						},
+						"PL_TriggerType": {
+							"value": {
+								"value": "@pipeline().TriggerType",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"StartTime": {
+							"value": {
+								"value": "@variables('StartTime3')",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "CaseStudy2",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"variables": {
+			"StartTime1": {
+				"type": "String"
+			},
+			"EndTime1": {
+				"type": "String"
+			},
+			"StartTime2": {
+				"type": "String"
+			},
+			"EndTime2": {
+				"type": "String"
+			},
+			"StartTime3": {
+				"type": "String"
+			},
+			"EndTime3": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Divyanshi_Case_Study_1"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-11-11T07:52:34Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

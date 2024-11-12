@@ -1,0 +1,11 @@
+{
+	"name": "IngestionfromFile",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://de10692367sa.dfs.core.windows.net/"
+		}
+	}
+}

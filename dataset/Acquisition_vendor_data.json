@@ -1,0 +1,22 @@
+{
+	"name": "Acquisition_vendor_data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CaseStudy1_Divyanshi",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "vendor_master_data.parquet",
+				"folderPath": "case_study_1/PROJECT/P00001–ACQUISTION/NonSensitive/1st_Party/GSAP_DS_HANA/VENDOR_MASTER",
+				"fileSystem": "divyanshi"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

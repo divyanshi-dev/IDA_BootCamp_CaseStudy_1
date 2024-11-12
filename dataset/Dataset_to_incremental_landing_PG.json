@@ -1,0 +1,24 @@
+{
+	"name": "Dataset_to_incremental_landing_PG",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_PG_CaseStudy",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "pravallika-pg/templandingincremental/",
+				"fileSystem": "usecase3and4"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

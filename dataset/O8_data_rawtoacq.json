@@ -1,0 +1,71 @@
+{
+	"name": "O8_data_rawtoacq",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "casestudy1_ingestion1_shreya_nayak_a",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SourcePath": {
+				"type": "string"
+			},
+			"OldFileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().OldFileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().SourcePath",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "request_uuid",
+				"type": "String"
+			},
+			{
+				"name": "request_date",
+				"type": "String"
+			},
+			{
+				"name": "entity_id",
+				"type": "String"
+			},
+			{
+				"name": "service_provider_id",
+				"type": "String"
+			},
+			{
+				"name": "raw_log",
+				"type": "String"
+			},
+			{
+				"name": "serial_number",
+				"type": "String"
+			},
+			{
+				"name": "identity_key",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

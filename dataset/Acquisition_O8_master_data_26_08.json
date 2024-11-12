@@ -1,0 +1,254 @@
+{
+	"name": "Acquisition_O8_master_data_26_08",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CaseStudy1_Divyanshi",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "case_study_1/PROJECT/P00001–ACQUISTION/NonSensitive/3rd_Party/ORCHESTR8/O8_MASTER_DATA",
+				"fileSystem": "divyanshi"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "O8_PART_NO",
+				"type": "UTF8"
+			},
+			{
+				"name": "MATERIAL_DESC",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_SUPPLIER_CODE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_PROCUREMENT_TYPE_DESC",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_REPLENISHMENT_LEAD_TIME",
+				"type": "UTF8"
+			},
+			{
+				"name": "MAX_LOT_SIZE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_MIN_LOT_SIZE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_ORDER_QTY_IN_RUOM_ROUNDING_VALUE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_PHASE_IN_DATE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_PHASE_OUT_DATE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_PART_TYPE_CODE",
+				"type": "UTF8"
+			},
+			{
+				"name": "STANDARD_PRICE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_ACTIVE_PART",
+				"type": "UTF8"
+			},
+			{
+				"name": "MATERIAL_TYPE_CODE",
+				"type": "UTF8"
+			},
+			{
+				"name": "MRP_CONTROLLER_CODE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_NO_OF_DAYS_STRATEGIC_BUFFER",
+				"type": "UTF8"
+			},
+			{
+				"name": "PALLET_QTY",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_PART_STATUS",
+				"type": "UTF8"
+			},
+			{
+				"name": "PRODUCT_HIERARCHY_SKU_CODE",
+				"type": "UTF8"
+			},
+			{
+				"name": "MATERIAL_GROUP_CODE",
+				"type": "UTF8"
+			},
+			{
+				"name": "PLANNING_STRATEGY_GROUP_CODE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_SOURCE_LOCATION",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_LEAD_TIME_OFFSET",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_MANUFACTURING_LEAD_TIME",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_RUOM_CONVERSION_FACTOR",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_REPLENISHMENT_UOM",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_OMAN_CURRENCY_NO_OF_DECIMAL_PLACES",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_US_LOCATION_TYPE",
+				"type": "UTF8"
+			},
+			{
+				"name": "PROCUREMENT_TYPE_CODE",
+				"type": "UTF8"
+			},
+			{
+				"name": "PLANT_CODE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_GROSS_WEIGHT",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_MATERIAL_VOL",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_DUAL_PART_NO",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_DECOUPLED_LEAD_TIME",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_BASE_PART_NO",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_STACKABLE_PRODUCT_IND",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_HAZARDOUS_PART_IND",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_HAUILER_LEAD_TIME",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_HAUILER_LEAD_TIME_ADJUSTMENT_DAYS",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_SUPPLIER_NAME",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_TOTAL_BUFFER_QTY_IN_RUOM",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_TOTAL_BUFFER_VALUE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_ON_HAND_QTY_IN_RUOM",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_ON_HAND_VALUE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_OPEN_SHOP_ORDER_QTY_IN_RUOM",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_OPEN_SHOP_ORDER_VALUE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_OPEN_PURCHASE_ORDER_QTY_IN_RUOM",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_OPEN_PURCHASE_ORDER_VALUE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_OPEN_CUSTOMER_ORDER_QTY_IN_RUOM",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_OPEN_CUSTOMER_ORDER_VALUE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_OPEN_PLANNED_DEMAND_QTY_IN_RUOM",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_OPEN_PLANNED_DEMAND_VALUE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_NO_OF_BUFFER_DAYS",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_PLANNING_RULE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_REPLACEMENT_PART",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_AVG_DAILY_USAGE",
+				"type": "UTF8"
+			},
+			{
+				"name": "O8_FILE_SENT_DATE",
+				"type": "UTF8"
+			},
+			{
+				"name": "ATHENA_LOAD_DATETIME",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

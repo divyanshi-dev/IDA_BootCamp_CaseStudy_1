@@ -1,0 +1,190 @@
+{
+	"name": "RawToAcquisition_Shreya",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup_rawToAcq",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "select * from ControlTable_SHNAA where SourceZoneID= 1;",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SqlServerTable_ControlTable",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Lookup_rawToAcq",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup_rawToAcq').output.value",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "If Condition_vendor",
+							"type": "IfCondition",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@startswith(item().FileName, 'vendor')",
+									"type": "Expression"
+								},
+								"ifFalseActivities": [
+									{
+										"name": "Copy data1",
+										"type": "Copy",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "DelimitedTextSource",
+												"storeSettings": {
+													"type": "AzureBlobFSReadSettings",
+													"recursive": true,
+													"enablePartitionDiscovery": false
+												},
+												"formatSettings": {
+													"type": "DelimitedTextReadSettings"
+												}
+											},
+											"sink": {
+												"type": "ParquetSink",
+												"storeSettings": {
+													"type": "AzureBlobFSWriteSettings"
+												},
+												"formatSettings": {
+													"type": "ParquetWriteSettings"
+												}
+											},
+											"enableStaging": false,
+											"translator": {
+												"type": "TabularTranslator",
+												"typeConversion": true,
+												"typeConversionSettings": {
+													"allowDataTruncation": true,
+													"treatBooleanAsNumber": false
+												}
+											}
+										},
+										"inputs": [
+											{
+												"referenceName": "O8_data_rawtoacq",
+												"type": "DatasetReference",
+												"parameters": {
+													"SourcePath": {
+														"value": "@item().SourcePath",
+														"type": "Expression"
+													},
+													"OldFileName": {
+														"value": "@item().OldFileName\n",
+														"type": "Expression"
+													}
+												}
+											}
+										],
+										"outputs": [
+											{
+												"referenceName": "Parquet7",
+												"type": "DatasetReference",
+												"parameters": {
+													"TargetPath": {
+														"value": "@item().TargetPath",
+														"type": "Expression"
+													},
+													"FileName": {
+														"value": "@item().FileName",
+														"type": "Expression"
+													}
+												}
+											}
+										]
+									}
+								],
+								"ifTrueActivities": [
+									{
+										"name": "Data flow1",
+										"type": "ExecuteDataFlow",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"dataflow": {
+												"referenceName": "dataflow3",
+												"type": "DataFlowReference",
+												"parameters": {
+													"SourcePath": {
+														"value": "'@{item().SourcePath}'",
+														"type": "Expression"
+													},
+													"Filename": {
+														"value": "'@{item().FileName}'",
+														"type": "Expression"
+													},
+													"TargetPath": {
+														"value": "'@{item().TargetPath}'",
+														"type": "Expression"
+													},
+													"OldFileName": {
+														"value": "'@{item().OldFileName}'",
+														"type": "Expression"
+													}
+												}
+											},
+											"compute": {
+												"coreCount": 8,
+												"computeType": "General"
+											},
+											"traceLevel": "Fine"
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-11-07T10:53:18Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

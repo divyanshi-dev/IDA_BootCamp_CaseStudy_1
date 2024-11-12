@@ -1,0 +1,11 @@
+{
+	"name": "AKV_LS_PG",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://de106kv50215.vault.azure.net/"
+		}
+	}
+}

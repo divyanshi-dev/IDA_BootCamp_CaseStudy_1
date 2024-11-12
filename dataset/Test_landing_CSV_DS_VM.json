@@ -1,0 +1,49 @@
+{
+	"name": "Test_landing_CSV_DS_VM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_2_ADLS_VM",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "vinayvm/test_landing",
+				"fileSystem": "usecase3and4"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Country_cd",
+				"type": "String"
+			},
+			{
+				"name": "Country_name",
+				"type": "String"
+			},
+			{
+				"name": "from_Currency",
+				"type": "String"
+			},
+			{
+				"name": "to_Currency",
+				"type": "String"
+			},
+			{
+				"name": "Exchange_rate",
+				"type": "String"
+			},
+			{
+				"name": "Exchange_date",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

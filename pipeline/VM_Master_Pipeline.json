@@ -1,0 +1,113 @@
+{
+	"name": "VM_Master_Pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Ingestion_Pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Set the Load_id",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "VM_Src_Landing_Bronze_Ingestion_Pipeline",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"load_id": {
+							"value": "@variables('load_id')",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "Transformation_Pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ingestion_Pipeline",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "VM_Transformation_Bronze_2_Gold",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"load_id": {
+							"value": "@variables('load_id')",
+							"type": "Expression"
+						},
+						"country_code": {
+							"value": "@pipeline().parameters.country_code",
+							"type": "Expression"
+						},
+						"frequency": {
+							"value": "@pipeline().parameters.frequency",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "Set the Load_id",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "load_id",
+					"value": 1
+				}
+			}
+		],
+		"parameters": {
+			"config_id": {
+				"type": "int",
+				"defaultValue": 1
+			},
+			"country_code": {
+				"type": "string",
+				"defaultValue": "CA"
+			},
+			"frequency": {
+				"type": "string",
+				"defaultValue": "Daily"
+			}
+		},
+		"variables": {
+			"load_id": {
+				"type": "Integer",
+				"defaultValue": 1
+			}
+		},
+		"folder": {
+			"name": "vinayvm/uc3"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-10-30T11:41:24Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,257 @@
+{
+	"name": "NEW_DATA_SHREYA",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "casestudy1_ingestion1_shreya_nayak_a",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "case_study1/O8",
+				"fileSystem": "shreya-nayak-a"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "O8_PART_NO",
+				"type": "String"
+			},
+			{
+				"name": "MATERIAL_DESC",
+				"type": "String"
+			},
+			{
+				"name": "O8_SUPPLIER_CODE",
+				"type": "String"
+			},
+			{
+				"name": "O8_PROCUREMENT_TYPE_DESC",
+				"type": "String"
+			},
+			{
+				"name": "O8_REPLENISHMENT_LEAD_TIME",
+				"type": "String"
+			},
+			{
+				"name": "MAX_LOT_SIZE",
+				"type": "String"
+			},
+			{
+				"name": "O8_MIN_LOT_SIZE",
+				"type": "String"
+			},
+			{
+				"name": "O8_ORDER_QTY_IN_RUOM_ROUNDING_VALUE",
+				"type": "String"
+			},
+			{
+				"name": "O8_PHASE_IN_DATE",
+				"type": "String"
+			},
+			{
+				"name": "O8_PHASE_OUT_DATE",
+				"type": "String"
+			},
+			{
+				"name": "O8_PART_TYPE_CODE",
+				"type": "String"
+			},
+			{
+				"name": "STANDARD_PRICE",
+				"type": "String"
+			},
+			{
+				"name": "O8_ACTIVE_PART",
+				"type": "String"
+			},
+			{
+				"name": "MATERIAL_TYPE_CODE",
+				"type": "String"
+			},
+			{
+				"name": "MRP_CONTROLLER_CODE",
+				"type": "String"
+			},
+			{
+				"name": "O8_NO_OF_DAYS_STRATEGIC_BUFFER",
+				"type": "String"
+			},
+			{
+				"name": "PALLET_QTY",
+				"type": "String"
+			},
+			{
+				"name": "O8_PART_STATUS",
+				"type": "String"
+			},
+			{
+				"name": "PRODUCT_HIERARCHY_SKU_CODE",
+				"type": "String"
+			},
+			{
+				"name": "MATERIAL_GROUP_CODE",
+				"type": "String"
+			},
+			{
+				"name": "PLANNING_STRATEGY_GROUP_CODE",
+				"type": "String"
+			},
+			{
+				"name": "O8_SOURCE_LOCATION",
+				"type": "String"
+			},
+			{
+				"name": "O8_LEAD_TIME_OFFSET",
+				"type": "String"
+			},
+			{
+				"name": "O8_MANUFACTURING_LEAD_TIME",
+				"type": "String"
+			},
+			{
+				"name": "O8_RUOM_CONVERSION_FACTOR",
+				"type": "String"
+			},
+			{
+				"name": "O8_REPLENISHMENT_UOM",
+				"type": "String"
+			},
+			{
+				"name": "O8_OMAN_CURRENCY_NO_OF_DECIMAL_PLACES",
+				"type": "String"
+			},
+			{
+				"name": "O8_US_LOCATION_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "PROCUREMENT_TYPE_CODE",
+				"type": "String"
+			},
+			{
+				"name": "PLANT_CODE",
+				"type": "String"
+			},
+			{
+				"name": "O8_GROSS_WEIGHT",
+				"type": "String"
+			},
+			{
+				"name": "O8_MATERIAL_VOL",
+				"type": "String"
+			},
+			{
+				"name": "O8_DUAL_PART_NO",
+				"type": "String"
+			},
+			{
+				"name": "O8_DECOUPLED_LEAD_TIME",
+				"type": "String"
+			},
+			{
+				"name": "O8_BASE_PART_NO",
+				"type": "String"
+			},
+			{
+				"name": "O8_STACKABLE_PRODUCT_IND",
+				"type": "String"
+			},
+			{
+				"name": "O8_HAZARDOUS_PART_IND",
+				"type": "String"
+			},
+			{
+				"name": "O8_HAUILER_LEAD_TIME",
+				"type": "String"
+			},
+			{
+				"name": "O8_HAUILER_LEAD_TIME_ADJUSTMENT_DAYS",
+				"type": "String"
+			},
+			{
+				"name": "O8_SUPPLIER_NAME",
+				"type": "String"
+			},
+			{
+				"name": "O8_TOTAL_BUFFER_QTY_IN_RUOM",
+				"type": "String"
+			},
+			{
+				"name": "O8_TOTAL_BUFFER_VALUE",
+				"type": "String"
+			},
+			{
+				"name": "O8_ON_HAND_QTY_IN_RUOM",
+				"type": "String"
+			},
+			{
+				"name": "O8_ON_HAND_VALUE",
+				"type": "String"
+			},
+			{
+				"name": "O8_OPEN_SHOP_ORDER_QTY_IN_RUOM",
+				"type": "String"
+			},
+			{
+				"name": "O8_OPEN_SHOP_ORDER_VALUE",
+				"type": "String"
+			},
+			{
+				"name": "O8_OPEN_PURCHASE_ORDER_QTY_IN_RUOM",
+				"type": "String"
+			},
+			{
+				"name": "O8_OPEN_PURCHASE_ORDER_VALUE",
+				"type": "String"
+			},
+			{
+				"name": "O8_OPEN_CUSTOMER_ORDER_QTY_IN_RUOM",
+				"type": "String"
+			},
+			{
+				"name": "O8_OPEN_CUSTOMER_ORDER_VALUE",
+				"type": "String"
+			},
+			{
+				"name": "O8_OPEN_PLANNED_DEMAND_QTY_IN_RUOM",
+				"type": "String"
+			},
+			{
+				"name": "O8_OPEN_PLANNED_DEMAND_VALUE",
+				"type": "String"
+			},
+			{
+				"name": "O8_NO_OF_BUFFER_DAYS",
+				"type": "String"
+			},
+			{
+				"name": "O8_PLANNING_RULE",
+				"type": "String"
+			},
+			{
+				"name": "O8_REPLACEMENT_PART",
+				"type": "String"
+			},
+			{
+				"name": "O8_AVG_DAILY_USAGE",
+				"type": "String"
+			},
+			{
+				"name": "O8_FILE_SENT_DATE",
+				"type": "String"
+			},
+			{
+				"name": "ATHENA_LOAD_DATETIME",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

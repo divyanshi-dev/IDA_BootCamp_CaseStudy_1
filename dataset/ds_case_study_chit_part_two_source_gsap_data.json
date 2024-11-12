@@ -1,0 +1,25 @@
+{
+	"name": "ds_case_study_chit_part_two_source_gsap_data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_case_study_chit_source",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "GSAP_I_MISRCI022_TCURR_13082024_010009.csv",
+				"folderPath": "gsap_data",
+				"fileSystem": "source-datasets"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

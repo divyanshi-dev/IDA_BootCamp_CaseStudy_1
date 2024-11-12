@@ -1,0 +1,74 @@
+{
+	"name": "Prod_Source_UC2_PG",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_PG_CaseStudy",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Gloabl_Prod.csv",
+				"folderPath": "product_details",
+				"fileSystem": "source-datasets"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "TDH_Ingestion_Date",
+				"type": "String"
+			},
+			{
+				"name": "Country_Code",
+				"type": "String"
+			},
+			{
+				"name": "Source_Sub_Category_Global_Code",
+				"type": "String"
+			},
+			{
+				"name": "Product_Class_Code",
+				"type": "String"
+			},
+			{
+				"name": "Product_Class_Name",
+				"type": "String"
+			},
+			{
+				"name": "Category_Group_Code",
+				"type": "String"
+			},
+			{
+				"name": "Category_Group_Name",
+				"type": "String"
+			},
+			{
+				"name": "Category_Code",
+				"type": "String"
+			},
+			{
+				"name": "Category_Name",
+				"type": "String"
+			},
+			{
+				"name": "Sub_Category_Code",
+				"type": "String"
+			},
+			{
+				"name": "Sub_Category_Name",
+				"type": "String"
+			},
+			{
+				"name": "TDH_Ingestion_Revision_Date",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
