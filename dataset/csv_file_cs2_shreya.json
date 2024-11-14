@@ -1,8 +1,8 @@
 {
-	"name": "Dataset_to_incremental_landing_PG",
+	"name": "csv_file_cs2_shreya",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_PG_CaseStudy",
+			"referenceName": "casestudy1_ingestion1_shreya_nayak_a",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "pravallika-pg/templandingincremental/uc3",
-				"fileSystem": "usecase3and4"
+				"folderPath": "case_study2/RAW",
+				"fileSystem": "shreya-nayak-a"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

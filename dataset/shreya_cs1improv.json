@@ -1,0 +1,47 @@
+{
+	"name": "shreya_cs1improv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer_ShreyaNayakA",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "ObjectID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FileName",
+				"type": "varchar"
+			},
+			{
+				"name": "SourcePath",
+				"type": "varchar"
+			},
+			{
+				"name": "RawPath",
+				"type": "varchar"
+			},
+			{
+				"name": "AcquiSitionPath",
+				"type": "varchar"
+			},
+			{
+				"name": "EnrichedUnHarmonisedPath",
+				"type": "varchar"
+			},
+			{
+				"name": "EnrichedHarmonisedPath",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ControlTable_SHNAA_2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

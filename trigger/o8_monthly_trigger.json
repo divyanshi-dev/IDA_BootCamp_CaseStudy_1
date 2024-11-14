@@ -1,0 +1,29 @@
+{
+	"name": "o8_monthly_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "acq_to_en_unh",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Month",
+				"interval": 1,
+				"startTime": "2024-11-14T05:29:00",
+				"timeZone": "India Standard Time",
+				"schedule": {
+					"monthDays": [
+						13
+					]
+				}
+			}
+		}
+	}
+}

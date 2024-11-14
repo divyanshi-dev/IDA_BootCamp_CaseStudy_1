@@ -1,13 +1,13 @@
 {
-	"name": "Shreya_CaseStudy1_pip_RawToAcquisition",
+	"name": "Shreya_CaseStudy1_pip_AcquisitionToEnriched",
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup_RawToAcquisition",
-				"type": "Lookup",
+				"name": "AcquisitionToEnriched",
+				"type": "DatabricksNotebook",
 				"dependsOn": [
 					{
-						"activity": "Start time",
+						"activity": "start time",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -22,118 +22,15 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "SqlServerSource",
-						"sqlReaderQuery": "select * from ControlTable_SHNAA where SourceZoneID= 1;",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "SqlServerTable1",
-						"type": "DatasetReference"
-					},
-					"firstRowOnly": false
+					"notebookPath": "/Users/shreya.nayak@shell.com/CaseStudy1/Shreya_CaseStudy1_db_AcquisitionToEnriched"
+				},
+				"linkedServiceName": {
+					"referenceName": "Shreya_CaseStudy1_RawToAcquisitionn",
+					"type": "LinkedServiceReference"
 				}
 			},
 			{
-				"name": "ForEach1",
-				"type": "ForEach",
-				"dependsOn": [
-					{
-						"activity": "Lookup_RawToAcquisition",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@activity('Lookup_RawToAcquisition').output.value",
-						"type": "Expression"
-					},
-					"activities": [
-						{
-							"name": "Copy data1",
-							"type": "Copy",
-							"dependsOn": [],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"source": {
-									"type": "DelimitedTextSource",
-									"storeSettings": {
-										"type": "AzureBlobFSReadSettings",
-										"recursive": true,
-										"enablePartitionDiscovery": false
-									},
-									"formatSettings": {
-										"type": "DelimitedTextReadSettings"
-									}
-								},
-								"sink": {
-									"type": "ParquetSink",
-									"storeSettings": {
-										"type": "AzureBlobFSWriteSettings"
-									},
-									"formatSettings": {
-										"type": "ParquetWriteSettings"
-									}
-								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
-							},
-							"inputs": [
-								{
-									"referenceName": "Raw_data_Shreya",
-									"type": "DatasetReference",
-									"parameters": {
-										"SourcePath": {
-											"value": "@item().SourcePath",
-											"type": "Expression"
-										},
-										"OldFileName": {
-											"value": "@item().OldFileName",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "Parquet_Shreya",
-									"type": "DatasetReference",
-									"parameters": {
-										"TargetPath": {
-											"value": "@item().TargetPath",
-											"type": "Expression"
-										},
-										"FileName": {
-											"value": "@item().FileName",
-											"type": "Expression"
-										}
-									}
-								}
-							]
-						}
-					]
-				}
-			},
-			{
-				"name": "Start time",
+				"name": "start time",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"policy": {
@@ -150,11 +47,11 @@
 				}
 			},
 			{
-				"name": "End time",
+				"name": "end time",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
-						"activity": "ForEach1",
+						"activity": "AcquisitionToEnriched",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -174,11 +71,11 @@
 				}
 			},
 			{
-				"name": "SuccessLog2",
+				"name": "SuccessLog3",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "End time",
+						"activity": "end time",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -256,11 +153,11 @@
 				}
 			},
 			{
-				"name": "FailureLog2",
+				"name": "FailureLog3",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "End time",
+						"activity": "end time",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -350,7 +247,7 @@
 			"name": "Shreya_CaseStudy1"
 		},
 		"annotations": [],
-		"lastPublishTime": "2024-11-13T15:51:34Z"
+		"lastPublishTime": "2024-11-14T08:53:52Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

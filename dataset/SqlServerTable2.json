@@ -1,0 +1,55 @@
+{
+	"name": "SqlServerTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQL_Server_Div_cs1n",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "ObjectID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ObjectName",
+				"type": "varchar"
+			},
+			{
+				"name": "SourcePath",
+				"type": "varchar"
+			},
+			{
+				"name": "RawPath",
+				"type": "varchar"
+			},
+			{
+				"name": "AcquisitionPath",
+				"type": "varchar"
+			},
+			{
+				"name": "EnrichedUnharmonisedPath",
+				"type": "varchar"
+			},
+			{
+				"name": "EnrichedHarmonisedPath",
+				"type": "varchar"
+			},
+			{
+				"name": "ApprovalStatus",
+				"type": "varchar"
+			},
+			{
+				"name": "Comments",
+				"type": "text"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ControlTable_Div_new"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

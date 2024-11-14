@@ -185,13 +185,133 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Bronze Transformation",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Copy RTSP Data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Copy Non RTSP Data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Copy Prod data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/pravallika.gajul@shell.com/UC2/Bronze_Transformation_UC2"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DB_PG",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Silver Transformation",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Bronze Transformation",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/pravallika.gajul@shell.com/UC2/Silver_Transformation_UC2"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DB_PG",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Gold Transformation",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Silver Transformation",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/pravallika.gajul@shell.com/UC2/Gold_Transformation_UC2"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DB_PG",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Notebook3",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Gold Transformation",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/pravallika.gajul@shell.com/UC2"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_DB_PG",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"folder": {
 			"name": "UC2_PG"
 		},
 		"annotations": [],
-		"lastPublishTime": "2024-11-12T01:36:19Z"
+		"lastPublishTime": "2024-11-12T18:52:25Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

@@ -23,7 +23,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/vinay.moolya@shell.com/CS1_OG_VINAY_RK_3_Bronze_Transformation_Initial"
+					"notebookPath": "/Users/vinay.moolya@shell.com/UC1_VINAY_RK_GSAP_DATA/CS1_OG_VINAY_RK_3_Bronze_Transformation_Initial"
 				},
 				"linkedServiceName": {
 					"referenceName": "LS_DB_VM",
@@ -82,7 +82,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/vinay.moolya@shell.com/CS1_OG_VINAY_RK3_Silver_Transformation"
+					"notebookPath": "/Users/vinay.moolya@shell.com/UC1_VINAY_RK_GSAP_DATA/CS1_OG_VINAY_RK3_Silver_Transformation"
 				},
 				"linkedServiceName": {
 					"referenceName": "LS_DB_VM",
@@ -109,7 +109,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/vinay.moolya@shell.com/CS1_OG_VINAY_RK_3_Gold_Transformation"
+					"notebookPath": "/Users/vinay.moolya@shell.com/UC1_VINAY_RK_GSAP_DATA/CS1_OG_VINAY_RK_3_Gold_Transformation"
 				},
 				"linkedServiceName": {
 					"referenceName": "LS_DB_VM",
@@ -524,7 +524,7 @@
 			"name": "vinayvm/uc3"
 		},
 		"annotations": [],
-		"lastPublishTime": "2024-10-30T11:41:24Z"
+		"lastPublishTime": "2024-11-13T14:04:46Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

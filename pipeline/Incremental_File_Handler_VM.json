@@ -611,7 +611,7 @@
 			"name": "vinayvm/uc3"
 		},
 		"annotations": [],
-		"lastPublishTime": "2024-11-06T17:18:37Z"
+		"lastPublishTime": "2024-11-13T14:53:06Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

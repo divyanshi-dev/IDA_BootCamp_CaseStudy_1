@@ -1,8 +1,8 @@
 {
-	"name": "excel_to_excel_s_to_r",
+	"name": "Shreya_cs2_0_data",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Case_Study2_Divyanshi",
+			"referenceName": "casestudy1_ingestion1_shreya_nayak_a",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -13,31 +13,44 @@
 				"type": "AzureBlobFSLocation",
 				"folderPath": "Marine",
 				"fileSystem": "source-datasets"
-			}
+			},
+			"firstRowAsHeader": true
 		},
 		"schema": [
 			{
+				"name": "Customer_Code",
 				"type": "String"
 			},
 			{
+				"name": "Customer_Name",
 				"type": "String"
 			},
 			{
+				"name": "Customer_Type_Name",
 				"type": "String"
 			},
 			{
+				"name": "Region_Code",
 				"type": "String"
 			},
 			{
+				"name": "Region_Name",
 				"type": "String"
 			},
 			{
+				"name": "Country_Name",
 				"type": "String"
 			},
 			{
+				"name": "Country_Code",
 				"type": "String"
 			},
 			{
+				"name": "Customer_Banding_Name",
+				"type": "String"
+			},
+			{
+				"name": "last_update_date",
 				"type": "String"
 			}
 		]

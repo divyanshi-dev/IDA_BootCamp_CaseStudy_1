@@ -5,7 +5,14 @@
 			{
 				"name": "Lookup_ControlTable",
 				"type": "Lookup",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Start time",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -126,13 +133,226 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "SuccessLog1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "End time",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[raw_proc_shreya]",
+					"storedProcedureParameters": {
+						"EndTime": {
+							"value": {
+								"value": "@{formatDateTime(variables('EndTime'),'yyyy-MM-dd HH:mm:ss')}",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"ExecutionTime": {
+							"value": {
+								"value": "@utcNow()",
+								"type": "Expression"
+							},
+							"type": "Datetime"
+						},
+						"PipelineName": {
+							"value": {
+								"value": "@pipeline().Pipeline",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"RunID": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"StartTime": {
+							"value": {
+								"value": "@{formatDateTime(variables('StartTime'),'yyyy-MM-dd HH:mm:ss')}",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"status": {
+							"value": "Success",
+							"type": "String"
+						},
+						"TriggerTime": {
+							"value": {
+								"value": "@pipeline().TriggerTime",
+								"type": "Expression"
+							},
+							"type": "Datetime"
+						},
+						"TriggerType": {
+							"value": {
+								"value": "@pipeline().TriggerType",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "Shreya_SSMS_LinkedService",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Start time",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "StartTime",
+					"value": {
+						"value": "@utcNow()",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "End time",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Source_To_Raw",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "EndTime",
+					"value": {
+						"value": "@utcNow()",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "FailureLog1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "End time",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[raw_proc_shreya]",
+					"storedProcedureParameters": {
+						"EndTime": {
+							"value": {
+								"value": "@{formatDateTime(variables('EndTime'),'yyyy-MM-dd HH:mm:ss')}",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"ExecutionTime": {
+							"value": {
+								"value": "@utcNow()",
+								"type": "Expression"
+							},
+							"type": "Datetime"
+						},
+						"PipelineName": {
+							"value": {
+								"value": "@pipeline().Pipeline",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"RunID": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"StartTime": {
+							"value": {
+								"value": "@{formatDateTime(variables('StartTime'),'yyyy-MM-dd HH:mm:ss')}",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"status": {
+							"value": "Failure",
+							"type": "String"
+						},
+						"TriggerTime": {
+							"value": {
+								"value": "@pipeline().TriggerTime",
+								"type": "Expression"
+							},
+							"type": "Datetime"
+						},
+						"TriggerType": {
+							"value": {
+								"value": "@pipeline().TriggerType",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "Shreya_SSMS_LinkedService",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
+		"variables": {
+			"StartTime": {
+				"type": "String"
+			},
+			"EndTime": {
+				"type": "String"
+			}
+		},
 		"folder": {
 			"name": "Shreya_CaseStudy1"
 		},
 		"annotations": [],
-		"lastPublishTime": "2024-11-07T13:25:06Z"
+		"lastPublishTime": "2024-11-13T15:51:34Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

@@ -1,0 +1,72 @@
+{
+	"name": "Control_Table_SQL_AV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_DB_AV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ObjectName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SourcePath",
+				"type": "nvarchar"
+			},
+			{
+				"name": "RawPath",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AcqPath",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EnrHarPath",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EnrUnharPath",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SourceFile",
+				"type": "nvarchar"
+			},
+			{
+				"name": "RawFile",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AcqFile",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EnrHarFile",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EnrUnharFile",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Key1",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Control_Table_AV"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

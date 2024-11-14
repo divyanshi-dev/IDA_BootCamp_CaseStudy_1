@@ -134,7 +134,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"notebookPath": "/Users/pravallika.gajul@shell.com/Bronze_Transformation_Full_Load_PG"
+								"notebookPath": "/Users/pravallika.gajul@shell.com/UC3/Bronze_Transformation_Full_Load_PG"
 							},
 							"linkedServiceName": {
 								"referenceName": "LS_DB_PG",
@@ -273,7 +273,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"notebookPath": "/Users/pravallika.gajul@shell.com/Silver_Transformation_PG"
+								"notebookPath": "/Users/pravallika.gajul@shell.com/UC3/Silver_Transformation_PG"
 							},
 							"linkedServiceName": {
 								"referenceName": "LS_DB_PG",
@@ -300,7 +300,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"notebookPath": "/Users/pravallika.gajul@shell.com/Gold_Transformation_Full_Load_PG"
+								"notebookPath": "/Users/pravallika.gajul@shell.com/UC3/Gold_Transformation_Full_Load_PG"
 							},
 							"linkedServiceName": {
 								"referenceName": "LS_DB_PG",
@@ -821,7 +821,7 @@
 			"name": "UC3_PG"
 		},
 		"annotations": [],
-		"lastPublishTime": "2024-11-11T18:13:26Z"
+		"lastPublishTime": "2024-11-13T08:13:43Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

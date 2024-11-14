@@ -1,9 +1,9 @@
 {
-	"name": "Shreya_CaseStudy1_pip_MasterPipeline",
+	"name": "main_pipeline_cs1",
 	"properties": {
 		"activities": [
 			{
-				"name": "Source To Raw",
+				"name": "Execute Pipeline1",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"policy": {
@@ -12,18 +12,18 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "Shreya_CaseStudy1_pip_SourceToRaw",
+						"referenceName": "source_to_raw",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
 				}
 			},
 			{
-				"name": "Raw To Acquisition",
+				"name": "Execute Pipeline2",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "Source To Raw",
+						"activity": "Execute Pipeline1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -35,18 +35,18 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "Shreya_CaseStudy1_pip_RawToAcquisition",
+						"referenceName": "raw_to_acq",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
 				}
 			},
 			{
-				"name": "Acquisition To Enriched",
+				"name": "Execute Pipeline3",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "Raw To Acquisition",
+						"activity": "Execute Pipeline2",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -58,7 +58,30 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "Shreya_CaseStudy1_pip_AcquisitionToEnriched",
+						"referenceName": "acq_to_en_unh",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Execute Pipeline4",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute Pipeline3",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "en_unh_to_en_har",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
@@ -66,10 +89,10 @@
 			}
 		],
 		"folder": {
-			"name": "Shreya_CaseStudy1"
+			"name": "Divyanshi_case_study_1_new"
 		},
 		"annotations": [],
-		"lastPublishTime": "2024-11-13T15:51:34Z"
+		"lastPublishTime": "2024-11-14T05:36:11Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

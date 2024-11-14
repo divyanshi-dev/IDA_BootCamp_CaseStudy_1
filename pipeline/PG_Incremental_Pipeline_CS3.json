@@ -361,7 +361,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "Dataset_to_incremental_landing_PG",
+									"referenceName": "incrementaltemplandingpg_uc3",
 									"type": "DatasetReference"
 								}
 							],
@@ -589,7 +589,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"notebookPath": "/Users/pravallika.gajul@shell.com/Bronze_Transformation_Ingestion_Load_PG"
+								"notebookPath": "/Users/pravallika.gajul@shell.com/UC3/Bronze_Transformation_Ingestion_Load_PG"
 							},
 							"linkedServiceName": {
 								"referenceName": "LS_DB_PG",
@@ -597,8 +597,8 @@
 							}
 						},
 						{
-							"name": "Delete Bronze Incremental Landing Files",
-							"type": "Delete",
+							"name": "Silver Incremental Load",
+							"type": "DatabricksNotebook",
 							"dependsOn": [
 								{
 									"activity": "Bronze Incremental Load",
@@ -616,39 +616,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"dataset": {
-									"referenceName": "Dataset_to_incremental_landing_PG",
-									"type": "DatasetReference"
-								},
-								"enableLogging": false,
-								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								}
-							}
-						},
-						{
-							"name": "Silver Incremental Load",
-							"type": "DatabricksNotebook",
-							"dependsOn": [
-								{
-									"activity": "Delete Bronze Incremental Landing Files",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"notebookPath": "/Users/pravallika.gajul@shell.com/Silver_Transformation_Ingestion_Load_PG"
+								"notebookPath": "/Users/pravallika.gajul@shell.com/UC3/Silver_Transformation_Ingestion_Load_PG"
 							},
 							"linkedServiceName": {
 								"referenceName": "LS_DB_PG",
@@ -675,7 +643,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"notebookPath": "/Users/pravallika.gajul@shell.com/Gold_Transformation_UC3_PG"
+								"notebookPath": "/Users/pravallika.gajul@shell.com/UC3/Gold_Transformation_UC3_PG"
 							},
 							"linkedServiceName": {
 								"referenceName": "LS_DB_PG",
@@ -969,7 +937,7 @@
 			"name": "UC3_PG"
 		},
 		"annotations": [],
-		"lastPublishTime": "2024-11-12T01:53:48Z"
+		"lastPublishTime": "2024-11-13T17:30:42Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

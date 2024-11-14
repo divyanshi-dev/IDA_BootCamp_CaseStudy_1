@@ -1,0 +1,94 @@
+{
+	"name": "AzureDatabricksDeltaLakeDataset1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDatabricksDeltaLake_Div_cs1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDatabricksDeltaLakeDataset",
+		"typeProperties": {
+			"database": "default",
+			"table": "demand_forecast_tbl"
+		},
+		"schema": [
+			{
+				"name": "DELCO_CODE",
+				"type": "string"
+			},
+			{
+				"name": "MATERIAL_NO",
+				"type": "integer"
+			},
+			{
+				"name": "CUSTOMER_CODE",
+				"type": "integer"
+			},
+			{
+				"name": "ACTUAL_DEMAND",
+				"type": "long"
+			},
+			{
+				"name": "FORECAST_VOLUME",
+				"type": "long"
+			},
+			{
+				"name": "YEAR_NO",
+				"type": "integer"
+			},
+			{
+				"name": "MONTH_NO",
+				"type": "integer"
+			},
+			{
+				"name": "PLANT",
+				"type": "string"
+			},
+			{
+				"name": "SHIP_TO",
+				"type": "integer"
+			},
+			{
+				"name": "DIVISION",
+				"type": "integer"
+			},
+			{
+				"name": "DISTRIBUTION_CHANNEL",
+				"type": "integer"
+			},
+			{
+				"name": "UNIT_OF_MEASURE",
+				"type": "string"
+			},
+			{
+				"name": "CUSTOMER_NAME",
+				"type": "string"
+			},
+			{
+				"name": "MATERIAL_NAME",
+				"type": "string"
+			},
+			{
+				"name": "ACCOUNT_MANAGER",
+				"type": "integer"
+			},
+			{
+				"name": "ACCOUNT_MANAGER_NAME",
+				"type": "string"
+			},
+			{
+				"name": "DEMAND_CLASSIFICATION",
+				"type": "string"
+			},
+			{
+				"name": "SALES_ORGANIZATION",
+				"type": "string"
+			},
+			{
+				"name": "DELCO_COUNTRY",
+				"type": "string"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

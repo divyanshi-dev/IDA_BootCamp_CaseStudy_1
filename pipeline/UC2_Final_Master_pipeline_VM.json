@@ -214,7 +214,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/vinay.moolya@shell.com/UC2_Fin_VINAY_DY_1_Bronze_Transformation"
+					"notebookPath": "/Users/vinay.moolya@shell.com/UC2_VINAY_DY_DS_COMPARISON/UC2_Fin_VINAY_DY_1_Bronze_Transformation"
 				},
 				"linkedServiceName": {
 					"referenceName": "LS_DB_VM",
@@ -241,7 +241,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/vinay.moolya@shell.com/UC2_Fin_VINAY_DY_Silver_Transformation"
+					"notebookPath": "/Users/vinay.moolya@shell.com/UC2_VINAY_DY_DS_COMPARISON/UC2_Fin_VINAY_DY_Silver_Transformation"
 				},
 				"linkedServiceName": {
 					"referenceName": "LS_DB_VM",
@@ -268,7 +268,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/vinay.moolya@shell.com/UC2_Fin_VINAY_DY_Gold_Transformation"
+					"notebookPath": "/Users/vinay.moolya@shell.com/UC2_VINAY_DY_DS_COMPARISON/UC2_Fin_VINAY_DY_Gold_Transformation"
 				},
 				"linkedServiceName": {
 					"referenceName": "LS_DB_VM",
@@ -295,7 +295,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/vinay.moolya@shell.com/UC2_VINAY_DY_SQL_DB_Insertion"
+					"notebookPath": "/Users/vinay.moolya@shell.com/UC2_VINAY_DY_DS_COMPARISON/UC2_VINAY_DY_SQL_DB_Insertion"
 				},
 				"linkedServiceName": {
 					"referenceName": "LS_DB_VM",
@@ -307,7 +307,7 @@
 			"name": "vinayvm/uc2"
 		},
 		"annotations": [],
-		"lastPublishTime": "2024-11-11T17:32:04Z"
+		"lastPublishTime": "2024-11-13T12:21:38Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
